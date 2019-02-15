@@ -30,8 +30,10 @@ certbot_create_standalone_stop_services:
 # To install from source (on older OSes or if you need a specific or newer
 # version of Certbot), set this variable to `yes` and configure other options.
 certbot_install_from_source: false
+certbot_install_from_source_method: 'git'  # git, url
 certbot_repo: https://github.com/certbot/certbot.git
 certbot_version: master
+certbot_source_url: 'https://raw.githubusercontent.com/certbot/certbot/{{ certbot_version }}/certbot-auto'
 certbot_keep_updated: true
 
 # Where to put Certbot when installing from source.

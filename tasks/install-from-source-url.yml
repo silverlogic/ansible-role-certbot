@@ -1,0 +1,11 @@
+---
+- name: Create Certbot directory
+  file:
+    path: "{{ certbot_dir }}"
+    state: "directory"
+
+- name: Download Certbot into configured directory
+  get_url:
+    url: "{{ certbot_source_url }}"
+    dest: "{{ certbot_script }}"
+    force: "{{ certbot_keep_updated }}"
