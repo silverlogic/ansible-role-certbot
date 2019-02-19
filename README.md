@@ -62,18 +62,20 @@ These services will only be stopped the first time a new cert is generated.
 
 ### Source Installation from Git
 
-You can install Certbot from it's Git source repository if desired. This might be useful in several cases, but especially when older distributions don't have Certbot packages available (e.g. CentOS < 7, Ubuntu < 16.10 and Debian < 8).
+You can install Certbot from it's Git source repository or URL if desired. This might be useful in several cases, but especially when older distributions don't have Certbot packages available (e.g. CentOS < 7, Ubuntu < 16.10 and Debian < 8).
 
     certbot_install_from_source: false
+    certbot_install_from_source_method: 'git'  # git, url
     certbot_repo: https://github.com/certbot/certbot.git
     certbot_version: master
+    certbot_source_url: 'https://dl.eff.org/certbot-auto'
     certbot_keep_updated: true
 
-Certbot Git repository options. To install from source, set `certbot_install_from_source` to `yes`. This clones the configured `certbot_repo`, respecting the `certbot_version` setting. If `certbot_keep_updated` is set to `yes`, the repository is updated every time this role runs.
+Certbot install from source options. To install from source using Git, set `certbot_install_from_source` to `yes` and `certbot_install_from_source_method to `git`.  This clones the configured `certbot_repo`, respecting the `certbot_version` setting. To install from source using a URL set `certbot_install_from_source` to `yes` and `certbot_install_from_source_method` to `url`.  This downloads the certbot-auto script from the configured `certbot_source_url`.  If `certbot_keep_updated` is set to `yes`, the repository/download is updated every time this role runs.
 
     certbot_dir: /opt/certbot
 
-The directory inside which Certbot will be cloned.
+The directory inside which Certbot will be cloned / downloaded.
 
 ### Wildcard Certificates
 
